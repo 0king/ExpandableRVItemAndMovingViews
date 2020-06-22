@@ -14,6 +14,7 @@ import android.view.View.*
 import android.view.animation.DecelerateInterpolator
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.view.doOnLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.expandablerv.expandablelayout.ExpandableLayoutListenerAdapter
 import com.example.expandablerv.expandablelayout.ExpandableLinearLayout
@@ -77,16 +78,27 @@ class RVAdapter(var itemList: ArrayList<String>): RecyclerView.Adapter<RecyclerV
                     }
 
                     override fun onOpened() {
-                        h.row1.visibility = VISIBLE
+                        //h.row1.visibility = VISIBLE
                         //h.row1.alpha = 1.0F
+                        toggleViewVisibility(h.row1, position)
                     }
 
                     override fun onClosed() {
-                        h.row1.visibility = INVISIBLE
+                        //h.row1.visibility = INVISIBLE
                         //h.row1.alpha = 0.0F
+                        toggleViewVisibility(h.row1, position)
                     }
                 })
 
+                toggleViewVisibility(h.row1, position)
+
+                //toggle box position
+                if (expandState[position]){
+                    //h.layoutTheBoxes()
+                    h.translateBoxes()
+                }
+                else
+                    h.layoutTheBoxes()
 
                 h.btn.setOnClickListener{
                     h.expandableLayout.toggle()
@@ -95,6 +107,14 @@ class RVAdapter(var itemList: ArrayList<String>): RecyclerView.Adapter<RecyclerV
             }
         }
     }
+
+    fun toggleViewVisibility(view: View, position: Int){
+        if (expandState[position])
+            view.visibility = VISIBLE
+        else
+            view.visibility = INVISIBLE
+    }
+
 
     inner class ItemHolder1(private val view: View) : RecyclerView.ViewHolder(view) {
 
@@ -166,7 +186,54 @@ class RVAdapter(var itemList: ArrayList<String>): RecyclerView.Adapter<RecyclerV
                 animateBox2()
                 animateBox3()
             }
+        }
 
+        fun translateBoxes(){
+            /*box1.viewTreeObserver.addOnGlobalLayoutListener {
+                box1.viewTreeObserver.removeOnGlobalLayoutListener { this }
+                translateBox1()
+            }
+            box2.viewTreeObserver.addOnGlobalLayoutListener {
+                box2.viewTreeObserver.removeOnGlobalLayoutListener { this }
+                translateBox2()
+            }
+            box3.viewTreeObserver.addOnGlobalLayoutListener {
+                box3.viewTreeObserver.removeOnGlobalLayoutListener { this }
+                translateBox3()
+            }*/
+            itemView.doOnLayout {
+                translateBox1()
+                translateBox2()
+                translateBox3()
+            }
+        }
+        fun translateBox1(){
+            val dx = dpToPx(10) - box1.absX()
+            box1.translationX = dx.toFloat()
+            box1.translationY = 0F
+        }
+        fun translateBox2(){
+            val dx = dpToPx(10) - box2.absX()
+            box2.translationX = dx.toFloat()
+            val widthMS = MeasureSpec.makeMeasureSpec(itemView.width, MeasureSpec.EXACTLY)
+            val heightMS = MeasureSpec.makeMeasureSpec(itemView.height, MeasureSpec.AT_MOST)
+            row1.measure(widthMS, heightMS)
+            val row1Height = row1.measuredHeight
+            val dy = row1Height + dpToPx(10)
+            box2.translationY = dy.toFloat()
+        }
+        fun translateBox3(){
+            val dx = dpToPx(10) - box3.absX()
+            box3.translationX = dx.toFloat()
+            //dy = row1.height + row2.height + margin x 2
+            val widthMS = MeasureSpec.makeMeasureSpec(itemView.width, MeasureSpec.EXACTLY)
+            val heightMS = MeasureSpec.makeMeasureSpec(itemView.height, MeasureSpec.AT_MOST)
+            row1.measure(widthMS, heightMS)
+            row2.measure(widthMS, heightMS)
+            val row1Height = row1.measuredHeight
+            val row2Height = row2.measuredHeight
+            val dy = row1Height + row2Height + dpToPx(20)
+            box3.translationY = dy.toFloat()
         }
 
         fun animateBox1(){
