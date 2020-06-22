@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:background="#C1F8C7">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:text="click here"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- row 1 -->
+    <LinearLayout
+        android:id="@+id/row1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv1">
+        <LinearLayout
+            android:id="@+id/box1"
+            android:transitionName="box1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_test"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+            <TextView
+                android:text="Title title title title"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvD1"
+            android:text="@string/str3"
+            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/box1"
+            app:layout_constraintTop_toBottomOf="@id/tv1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/row1">
+        <LinearLayout
+            android:id="@+id/box2"
+            android:transitionName="box2"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_test"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+            <TextView
+                android:text="Title title title title"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvD2"
+            android:text="@string/str1"
+            android:textSize="17sp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/row2">
+        <LinearLayout
+            android:id="@+id/box3"
+            android:transitionName="box3"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_test"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+            <TextView
+                android:text="Title title title title"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvD3"
+            android:text="@string/str2"
+            android:textSize="17sp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

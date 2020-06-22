@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ExpandableRV</string>
+    <string name="str1">sample text sample text 123 ghghghg hgh ghgh ghg hghg jjj hjj</string>
+    <string name="str2">sample text sample text 123 ghghghg hgh ghgh kkkk kkk kkkkk kkkkk kkkk kkkk kkkk kkkk kkkk kkkk kkkkk kkkk kkkk kkk ghg hghg jjj hjj</string>
+    <string name="str3">sample text sample text 123 ghghghg hgh ghgh kkkk kkk kkkkk kkkkk kkkk kkkk kkkk kkkk kkkk kkkk kkkkk kkkk kkkk kkk ghg hghg jjj hjjsample text sample text 123 ghghghg hgh ghgh kkkk kkk kkkkk kkkkk kkkk kkkk kkkk kkkk kkkk kkkk kkkkk kkkk kkkk kkk ghg hghg jjj hjj</string>
+</resources>

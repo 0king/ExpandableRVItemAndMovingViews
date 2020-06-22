@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/box1"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        >
+        <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/ic_test"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:text="Ttile ... title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/box1"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="#2B4CF6"
+        android:textSize="15sp"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/textView"
+        >
+        <LinearLayout
+            android:id="@+id/box0"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/box2"
+            >
+            <ImageView
+                android:src="@drawable/ic_test"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+            <TextView
+                android:text="Title title title title"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/box2"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/box0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/box3">
+            <ImageView
+                android:src="@drawable/ic_test"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+            <TextView
+                android:text="Title title title title"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/box3"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/box2"
+            app:layout_constraintEnd_toEndOf="parent">
+            <ImageView
+                android:src="@drawable/ic_test"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+            <TextView
+                android:text="Title title title title"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include android:id="@+id/row1"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/textView"
+        layout="@layout/part_item_1"
+        />
+
+    <com.example.expandablerv.expandablelayout.ExpandableLinearLayout
+        android:id="@+id/ell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutMain"
+        android:orientation="vertical"
+        app:ael_duration="400"
+        app:ael_expanded="false"
+        android:layout_marginTop="20dp"
+        >
+        <include android:id="@+id/row2"
+            layout="@layout/part_item_1"/>
+        <include android:id="@+id/row3"
+            layout="@layout/part_item_1"/>
+    </com.example.expandablerv.expandablelayout.ExpandableLinearLayout>
+
+</RelativeLayout>
