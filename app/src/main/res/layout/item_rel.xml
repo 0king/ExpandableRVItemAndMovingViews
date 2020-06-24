@@ -34,67 +34,6 @@
         android:textSize="15sp"
         />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/skeletonLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/textView"
-        >
-        <LinearLayout
-            android:id="@+id/box00"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/box22"
-            >
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"/>
-            <TextView
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/box22"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/box00"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/box33">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"/>
-            <TextView
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/box33"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/box22"
-            app:layout_constraintEnd_toEndOf="parent">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"/>
-            <TextView
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <LinearLayout
         android:id="@+id/box0"
         android:orientation="vertical"

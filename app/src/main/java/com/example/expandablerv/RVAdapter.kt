@@ -66,13 +66,13 @@ class RVAdapter(var itemList: ArrayList<String>): RecyclerView.Adapter<RecyclerV
                 h.expandableLayout.setInterpolator(DecelerateInterpolator())
                 h.expandableLayout.setListener(object : ExpandableLayoutListenerAdapter() {
                     override fun onPreOpen() {
-                        createRotateAnimator(holder.btn, 0f, 180f)?.start()
+                        createRotateAnimator(h.btn, 0f, 180f)?.start()
                         h.bind(position)
                         expandState.put(position, true)
                     }
 
                     override fun onPreClose() {
-                        createRotateAnimator(holder.btn, 180f, 0f)?.start()
+                        createRotateAnimator(h.btn, 180f, 0f)?.start()
                         h.bind(position)
                         expandState.put(position, false)
                     }
@@ -99,6 +99,8 @@ class RVAdapter(var itemList: ArrayList<String>): RecyclerView.Adapter<RecyclerV
                 }
                 else
                     h.layoutTheBoxes()
+
+                h.btn.rotation = if (expandState[position]) 180f else 0f
 
                 h.btn.setOnClickListener{
                     h.expandableLayout.toggle()
